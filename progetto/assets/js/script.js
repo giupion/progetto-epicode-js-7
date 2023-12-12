@@ -28,7 +28,7 @@ fetch('https://striveschool-api.herokuapp.com/api/product/', {
     console.log(p4);
     let p5 = new Product("Tekken4", "Special Edition ps2", "Sony", "https://m.media-amazon.com/images/I/61nmCq+vbvL.jpg", 100);
     console.log(p5);
-    console.log(json.push(p1,p2,p3,p4,p5))
+    
 console.log(json)
     
 json.forEach(e => {

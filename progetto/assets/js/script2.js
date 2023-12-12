@@ -68,17 +68,27 @@ console.log(arraygiochi)
 
   
 // dati da mandare alla richiesta POST
-let p6 = {
-    name: "Tekken4",
-    description: "Special Edition ps2",
-    brand:"sony",
-    imageUrl:"https://m.media-amazon.com/images/I/61nmCq+vbvL.jpg",
+
+
+  let p9 = {
+    name: "Pokemon White",
+    description: "Special Edition NDS",
+    brand:"Nintendo",
+    imageUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0GrTVt0G9DE3BlKtWUY1_u-GSx4U2pk9RYA&usqp=CAU",
     price:100,
   }
   
+
+  let p10 = {
+    name: "Pokemon black",
+    description: "Special Edition NDS",
+    brand:"Nintendo",
+    imageUrl:"https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2F4%2F40%2FIco_cover_-_EU%252BJP.jpg&tbnid=zTsjGaaWRZQMIM&vet=12ahUKEwjCusnssIqDAxUc6AIHHeX1AvwQMygAegQIARAq..i&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FIco&docid=BkIt51xNN1dBvM&w=264&h=376&q=ico&safe=active&ved=2ahUKEwjCusnssIqDAxUc6AIHHeX1AvwQMygAegQIARAq",
+    price:100
+  }
   fetch('https://striveschool-api.herokuapp.com/api/product/', {
     method: "POST",
-    body: JSON.stringify(p2),
+    body: JSON.stringify(p10),
     headers: {"Content-type": "application/json; charset=UTF-8",
     Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDIzODcxNjAsImV4cCI6MTcwMzU5Njc2MH0.IriynzoJOkrKDzhh-wrqt_GUHEitj2W8gh-8jn4vpEk'}
   })
