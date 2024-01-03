@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {fetch('https://striveschool-api.herokuapp.com/api/product/', {
         method: 'GET', 
         headers: {
-            Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDIzODcxNjAsImV4cCI6MTcwMzU5Njc2MH0.IriynzoJOkrKDzhh-wrqt_GUHEitj2W8gh-8jn4vpEk'
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs"
         }
     })
     .then(response => response.json())
@@ -67,22 +67,12 @@ console.log(p6);
     method: "POST",
     body: JSON.stringify(),
     headers: {"Content-type": "application/json; charset=UTF-8",
-    Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDIzODcxNjAsImV4cCI6MTcwMzU5Njc2MH0.IriynzoJOkrKDzhh-wrqt_GUHEitj2W8gh-8jn4vpEk'}
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs"}
   })
   .then(response => response.json()) 
   .then(json => console.log(json));
   
-  fetch('https://striveschool-api.herokuapp.com/api/product/', {
-    method: 'DELETE',
-    body: JSON.stringify(p6),
-    headers: {
-        'Authorization': ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDIzODcxNjAsImV4cCI6MTcwMzU5Njc2MH0.IriynzoJOkrKDzhh-wrqt_GUHEitj2W8gh-8jn4vpEk',
-        'Content-type': 'application/json'
-    }
-
-.then(response => response.json())
-.catch(error => console.log(error))
-  })
+  
  
 })
 
