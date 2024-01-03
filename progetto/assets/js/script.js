@@ -13,7 +13,7 @@ json.forEach(e => {
     div.appendChild(card)
     card.innerHTML = 
     `<div class="card m-2" style="width: 18rem; height: 98%">
-        <img src="${e.imageUrl}" class="card-img-top" alt="...">
+        <img src="${e.imageUrl}" class="card-img-top" alt="..." width="98%" height="98%">
         <div class="card-body d-flex flex-column justify-content-between">
             <div>
                 <h5 class="card-title">${e.name}</h5>
