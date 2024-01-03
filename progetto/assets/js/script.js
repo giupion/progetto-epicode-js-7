@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {fetch('https://striveschool-api.herokuapp.com/api/product/', {
         method: 'GET', 
         headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs"
+            Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs'
         }
     })
     .then(response => response.json())
@@ -50,9 +50,11 @@ let p5 = new Product("Tekken4", "Special Edition ps2", "Sony", "https://m.media-
 console.log(p5);
 let p6= new Product("Ico", "Special Edition ps2", "Sony", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2F4%2F40%2FIco_cover_-_EU%252BJP.jpg&tbnid=zTsjGaaWRZQMIM&vet=12ahUKEwjClafe2YqDAxUJdqQEHREeDlUQMygAegQIARAq..i&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FIco&docid=BkIt51xNN1dBvM&w=264&h=376&q=ico&safe=active&ved=2ahUKEwjClafe2YqDAxUJdqQEHREeDlUQMygAegQIARAq", 100);
 console.log(p6);
+let p26= new Product("Metal gear solid", "Special Edition ps2", "Sony", "https://www.google.com/imgres?imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F81dl6xftxSL._AC_UF894%2C1000_QL80_.jpg&tbnid=GcglBYsUsR4HxM&vet=12ahUKEwjawYal-sGDAxV4i_0HHfDcDY4QMygAegQIARBF..i&imgrefurl=https%3A%2F%2Fwww.amazon.it%2FMetal-Gear-Solid-2-Ps2%2Fdp%2FB0044APYH6&docid=NL1YzCQUs0L6JM&w=763&h=1000&q=metal%20gear%20solid%20ps2&safe=active&ved=2ahUKEwjawYal-sGDAxV4i_0HHfDcDY4QMygAegQIARBF", 100);
+console.log(p26);
 
-
-
+let p27= new Product("Metal gear solid 2", "Special ps2", "Sony", "https://www.google.com/imgres?imgurl=http%3A%2F%2Fwww.hardcoregaming101.net%2Fwp-content%2Fuploads%2F2023%2F05%2Fmetal-gear-solid-2-86.png&tbnid=7aamaNy8DWybHM&vet=12ahUKEwjawYal-sGDAxV4i_0HHfDcDY4QMygVegQIARB6..i&imgrefurl=http%3A%2F%2Fwww.hardcoregaming101.net%2Fmetal-gear-solid-2%2F&docid=f92H7Oy0NO0haM&w=1280&h=720&q=metal%20gear%20solid%20ps2&safe=active&ved=2ahUKEwjawYal-sGDAxV4i_0HHfDcDY4QMygVegQIARB6", 100);
+console.log(p27);
 
   
 // dati da mandare alla richiesta POST
@@ -67,15 +69,26 @@ console.log(p6);
     method: "POST",
     body: JSON.stringify(),
     headers: {"Content-type": "application/json; charset=UTF-8",
-    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs"}
+    Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs'}
   })
   .then(response => response.json()) 
   .then(json => console.log(json));
+})
+
+
+.catch(error => console.log(error))
+})
+
   
-  
+  fetch('https://striveschool-api.herokuapp.com/api/product/', {
+    method: 'DELETE',
+    body: JSON.stringify(p27),
+    headers: {
+        'Authorization': ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs',
+        'Content-type': 'application/json'
+    }
+
+.then(response => response.json())
+.catch(error => console.log(error))
+  })
  
-})
-
-
-    .catch(error => console.log(error))
-})
