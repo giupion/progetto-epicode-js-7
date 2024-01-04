@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => console.log(error))
 
 
-    fetch('https://striveschool-api.herokuapp.com/api/product/' + '6578934126761400183c350b', {
+    fetch('https://striveschool-api.herokuapp.com/api/product/' + '6578917526761400183c34f1', {
         method: 'DELETE',
 
         headers: {
