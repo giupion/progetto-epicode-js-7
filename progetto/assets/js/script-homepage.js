@@ -1,13 +1,13 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     fetch('https://striveschool-api.herokuapp.com/api/product/', {
-        method: 'GET',
-        headers: {
+             method: 'GET',
+         headers: {
             Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs'
-        }
-    })
-        .then(response => response.json())
-        .then(json => {
+               }
+          })
+         .then(response => response.json())
+         .then(json => {
             console.log(json)
             json.forEach(e => {
                 let div = document.querySelector(".cardList")
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
 
-        .catch(error => console.log(error))
+        
 
 
     class Product {
