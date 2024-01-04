@@ -1,4 +1,59 @@
-document.addEventListener('DOMContentLoaded', () => {fetch('https://striveschool-api.herokuapp.com/api/product/', {
+
+//Dichiaro l'authorization key per il json
+const key =
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs";
+  
+  //questa è l 'url per il fetch , indirizzo server json
+  const url ="https://striveschool-api.herokuapp.com/api/product/"
+
+
+  //Dichiaro la mia costante type per la dichiarazione di connessione
+const type = "application/json";
+
+
+//Setto un ascoltatore generico sulla pagina per attendere il caricamento totale del DOM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*document.addEventListener('DOMContentLoaded', () => {fetch('https://striveschool-api.herokuapp.com/api/product/', {
         method: 'GET', 
         headers: {
             Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs'
@@ -92,3 +147,6 @@ console.log(p27);
 .catch(error => console.log(error))
   })
  
+*/
+
+/*rifaccio da capo domani*/
