@@ -20,15 +20,15 @@ const type="application/json"
 
 
 //con trim elimino spazio all 'inizio, poi seleziono l'input corretto e lo memorizzo in un oggetto con le sue proprietà uguali al valore dell'input, value è una proprietà di input
- function aggiungiProdotto(){
+
 
     let prd={
-    nome:document.querySelector('#form-products input#nome-prodotto').value.trim(),
-   marchio:  document.querySelector('#form-products input#marchio').value.trim(),
-    immagine: document.querySelector('#form-products input#url-immagine').value.trim(),
-    prezzo: document.querySelector('#form-products input#prezzo-prodotto').value.trim(),
-    descrizione:  document.querySelector('#form-products input#descrizione-prodotto').value.trim(),
-}
+    name:document.querySelector(' input#nome-prodotto').value.trim(),
+    
+   brand:  document.querySelector(' input#marchio').value.trim(),
+    imageUrl: document.querySelector(' input#url-immagine').value.trim(),
+    price: document.querySelector(' input#prezzo-prodotto').value.trim(),
+    
 
 
 
@@ -36,7 +36,21 @@ const type="application/json"
 
 
 
+document.querySelector('#buttonadd').addEventListener('onclick',()=>{fetch('https://striveschool-api.herokuapp.com/api/product/', {
+    method: "POST",
+    body: JSON.stringify(prd),
+    headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQ0NjI4MDksImV4cCI6MTcwNTY3MjQwOX0.FntuC1oARFezqS7gJHYK8dBuKeV_K9QaXtZC6DOjSdo'
+    }
+})
+    .then(response => response.json())
+    .then(json => console.log(json))
+
+    .catch(error => console.log(error))
+
+//manca la roba di decidere dei bottoni e capire in che pagina siamo
 
 
-
+})
 })
