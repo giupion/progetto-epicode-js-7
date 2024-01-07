@@ -1,35 +1,27 @@
 //verifica le funzionalita di ogni pagina e scrivi  quello che si deve fare per ogni pagina
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.querySelector("#FormAddPrd")) {
+    if (document.querySelector("#form-products")) {
         //Setto un listener sul btn del form e richiamo la funzione di validazione
         document
           .querySelector("#btn-add")
-          .addEventListener("click", validateFormAdd);
+          .addEventListener("click",declareAndAddProduct);
         //Setto un listener sul btn del form per il reset e richiamo la funzione di reset
         document
           .querySelector("#btn-reset-yes")
           .addEventListener("click", resetFormAdd);
         //Se è presente il div content-list della pagina modifica prodotto
-      } else if (document.querySelector("#content-list")) {
-        //Richiamo la funzione per creare la lista
-        readProductChange();
-        document
-          .querySelector("#btn-aggiorna")
-          .addEventListener("click", validateFormChange);
-        document
-          .querySelector("#btn-annulla")
-          .addEventListener("click", resetFormChange);
-        //Se non è soddisfatta nessuna delle condizioni sopracitate vuol dire che siamo nella homepage
-      } else {
+      }  else {
         //e che quindi mostra l'elenco
         get()
       }
       
 
 
-      function validateFormChange(){}
+      function resetFormAdd(){}
 
-      
+
+
+
     function get(){fetch('https://striveschool-api.herokuapp.com/api/product/', {
              method: 'GET',
          headers: {
@@ -37,9 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
                }
           })
          .then(response => response.json())
-         .then(json => {
-            console.log(json)
-            json.forEach(e => {
+         .then(json => 
+            console.log(json))}
+
+            function card(){
+              
                 let div = document.querySelector(".cardList")
                 let card = document.createElement("div")
                 div.appendChild(card)
@@ -59,13 +53,52 @@ document.addEventListener('DOMContentLoaded', () => {
                               </div>
                              </div>
                              </div>`
-            });
-        })
-      }
-
+              }
         
+      
+    
+          
 
 
+
+   
+   function sendProduct(prd) {
+    console.log(prd);
+   
+    fetch('https://striveschool-api.herokuapp.com/api/product/', {
+      headers: {
+        "Content-Type": type, // il tipo del contenuto che sto inviando
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQ2NDYyOTQsImV4cCI6MTcwNTg1NTg5NH0.Ia1bCBWLR7cH9O6eVrGPU2nyEeWzywK_WWj9YGSWe4w',
+                        },
+                        // Chiamata di tipo POST
+                        method: "POST", // Method della chiamata - Salvataggio di una risorsa
+                        body: JSON.stringify(prd), // nel body della richiesta invio il dato al server
+                      });
+                    }
+                    //Dichiaro la mia funzione declareProduct per creare un oggetto da trasmettere a mezzo POST con json
+                    function declareAndAddProduct() {
+                    
+                      //Creo l'oggetto
+                      let prd = {
+                        name: document.querySelector("#form-products input#nome-prodotto").value.trim(),
+                        brand: document.querySelector("#form-products input#marchio").value.trim(),
+                        imageUrl: document.querySelector("#form-products input#url-immagine").value.trim(),
+                        price: parseInt(document.querySelector("#form-products input#prezzo-prodotto").value),
+                        description: document.querySelector("#form-products input#descrizione-prodotto").value.trim(),
+                      };
+                      sendProduct(prd);
+                      console.log(prd);
+                    }
+                      
+                      //manca la roba di decidere dei bottoni e capire in che pagina siamo
+    
+  })
+
+
+
+
+
+/*
     class Product {
         constructor(_name, _description, _brand, _imageUrl, _price) {
             this.name = _name;
@@ -93,46 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(p26);
 
     let p27 = new Product("Metal gear solid 2", "Special ps2", "Sony", "https://www.google.com/imgres?imgurl=http%3A%2F%2Fwww.hardcoregaming101.net%2Fwp-content%2Fuploads%2F2023%2F05%2Fmetal-gear-solid-2-86.png&tbnid=7aamaNy8DWybHM&vet=12ahUKEwjawYal-sGDAxV4i_0HHfDcDY4QMygVegQIARB6..i&imgrefurl=http%3A%2F%2Fwww.hardcoregaming101.net%2Fmetal-gear-solid-2%2F&docid=f92H7Oy0NO0haM&w=1280&h=720&q=metal%20gear%20solid%20ps2&safe=active&ved=2ahUKEwjawYal-sGDAxV4i_0HHfDcDY4QMygVegQIARB6", 100);
-    console.log(p27);
-
-   function addproduct(){ let prd={
-        name:document.querySelector(' input#nome-prodotto').value.trim(),
-        description: document.querySelector("#product-description").value.trim(),
-       brand:  document.querySelector(' input#marchio').value.trim(),
-        imageUrl: document.querySelector(' input#url-immagine').value.trim(),
-        price: document.querySelector(' input#prezzo-prodotto').value.trim(),
-        
-    
-    
-    
-    };
-    sendproduct(prd)
-}
-
-    
-    
-   function sendproduct(prd){fetch('https://striveschool-api.herokuapp.com/api/product/', {
-        method: "POST",
-        body: JSON.stringify(addproduct(prd)),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8",
-            Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQ2NDYyOTQsImV4cCI6MTcwNTg1NTg5NH0.Ia1bCBWLR7cH9O6eVrGPU2nyEeWzywK_WWj9YGSWe4w'
-        }
-    })
-        .then(response => response.json())
-        .then(json => console.log(json))
-    
-        .catch(error => console.log(error))}
-    
-    //manca la roba di decidere dei bottoni e capire in che pagina siamo
-    
-    
-    
-
-
-
-
-
+    console.log(p27); 
 
 
 
@@ -163,8 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         .catch(error => console.log(error))
-})
 
 
+*/
 
 
