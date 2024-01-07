@@ -1,7 +1,7 @@
 //verifica le funzionalita di ogni pagina e scrivi  quello che si deve fare per ogni pagina
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.querySelector("#FormAddPrd")) {
-        //Setto un listener sul btn del form e richiamo la funzione di validazione
+    if (document.querySelector("#form-addproducts")) {
+        //Setto un listener sul btn del form in aggiungiprodotto e richiamo la funzione di validazione
         document
           .querySelector("#btn-add")
           .addEventListener("click", validateFormAdd);
@@ -10,25 +10,31 @@ document.addEventListener('DOMContentLoaded', () => {
           .querySelector("#btn-reset-yes")
           .addEventListener("click", resetFormAdd);
         //Se è presente il div content-list della pagina modifica prodotto
-      } else if (document.querySelector("#content-list")) {
-        //Richiamo la funzione per creare la lista
-        readProductChange();
-        document
-          .querySelector("#btn-aggiorna")
-          .addEventListener("click", validateFormChange);
-        document
-          .querySelector("#btn-annulla")
-          .addEventListener("click", resetFormChange);
-        //Se non è soddisfatta nessuna delle condizioni sopracitate vuol dire che siamo nella homepage
-      } else {
+      }
+      else if(document.querySelector("#makecard")){
+
+        get()
+      }
+      //Se non è soddisfatta nessuna delle condizioni sopracitate vuol dire che siamo nella homepage
+      else {
         //e che quindi mostra l'elenco
       
       }
+
+//funzione che ci fa validare form in aggiugnirpodotto
+      function validateFormAdd(){
+
+
+      }
+
+      //funzione di reset al form in aggiungiprodotto pagina
+      function resetFormAdd(){}
       
-    fetch('https://striveschool-api.herokuapp.com/api/product/', {
+   function get(){ fetch('https://striveschool-api.herokuapp.com/api/product/', {
              method: 'GET',
+             mode: 'no-cors',
          headers: {
-            Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQzMDM3MDIsImV4cCI6MTcwNTUxMzMwMn0.kTlrhGQEsFsuvEHzmBRZnB55hjOo-JoseKD6DQEq_Vs'
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQ0NjI4MDksImV4cCI6MTcwNTY3MjQwOX0.FntuC1oARFezqS7gJHYK8dBuKeV_K9QaXtZC6DOjSdo'
                }
           })
          .then(response => response.json())
@@ -56,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                              </div>`
             });
         })
-
+    }
 
 
    function addproduct(){ let prd={
@@ -95,26 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-
-
-    fetch('https://striveschool-api.herokuapp.com/api/product/', {
-        method: "POST",
-        body: JSON.stringify(),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8",
-            Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQ0NjI4MDksImV4cCI6MTcwNTY3MjQwOX0.FntuC1oARFezqS7gJHYK8dBuKeV_K9QaXtZC6DOjSdo'
-        }
-    })
-        .then(response => response.json())
-        .then(json => console.log(json))
-
-        .catch(error => console.log(error))
-
-
-       fetch('https://striveschool-api.herokuapp.com/api/product/' + '6578917526761400183c34f1', {
+    function rimuovi(){fetch('https://striveschool-api.herokuapp.com/api/product/' + '6578917526761400183c34f1', {
         method: 'DELETE',
 
         headers: {
@@ -127,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         .catch(error => console.log(error))
+
+}
 })
 
 
@@ -168,4 +157,25 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(p26);
 
     let p27 = new Product("Metal gear solid 2", "Special ps2", "Sony", "https://www.google.com/imgres?imgurl=http%3A%2F%2Fwww.hardcoregaming101.net%2Fwp-content%2Fuploads%2F2023%2F05%2Fmetal-gear-solid-2-86.png&tbnid=7aamaNy8DWybHM&vet=12ahUKEwjawYal-sGDAxV4i_0HHfDcDY4QMygVegQIARB6..i&imgrefurl=http%3A%2F%2Fwww.hardcoregaming101.net%2Fmetal-gear-solid-2%2F&docid=f92H7Oy0NO0haM&w=1280&h=720&q=metal%20gear%20solid%20ps2&safe=active&ved=2ahUKEwjawYal-sGDAxV4i_0HHfDcDY4QMygVegQIARB6", 100);
-    console.log(p27); */
+    console.log(p27); 
+    
+    
+
+
+
+
+
+
+
+    fetch('https://striveschool-api.herokuapp.com/api/product/', {
+        method: "POST",
+        body: JSON.stringify(),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            Authorization: ' Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2YyOWMwNTgzNTAwMTg1MjMxODMiLCJpYXQiOjE3MDQ0NjI4MDksImV4cCI6MTcwNTY3MjQwOX0.FntuC1oARFezqS7gJHYK8dBuKeV_K9QaXtZC6DOjSdo'
+        }
+    })
+        .then(response => response.json())
+        .then(json => console.log(json))
+
+        .catch(error => console.log(error)) */
