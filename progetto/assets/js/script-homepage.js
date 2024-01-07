@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
    function addproduct(){ let prd={
         name:document.querySelector(' #nome-prodotto').value.trim(),
-        description: document.querySelector(" #product-description").value.trim(),
+        description: document.querySelector(" #descrizione-prodotto").value.trim(),
        brand:  document.querySelector('  #marchio').value.trim(),
         imageUrl: document.querySelector('  #url-immagine').value.trim(),
         price: document.querySelector(' #prezzo-prodotto').value.trim(),
